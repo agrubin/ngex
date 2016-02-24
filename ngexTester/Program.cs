@@ -11,9 +11,9 @@ namespace ngexTester
     {
         static void Main(string[] args)
         {
-            LexXML lX = new LexXML();
+            LexXML LX = new LexXML();
 
-
+            char meta = Transform.RegexToMeta(@"\\");
         }
     }
 }
