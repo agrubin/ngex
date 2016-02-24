@@ -3,19 +3,39 @@ using System.Collections.Generic;
 
 namespace ngex
 {
-    public static class Transform
+    using System;
+    using System.Collections.Generic;
+
+    namespace ngex
     {
-        private static readonly List<char> metacharacters = new List<char>() { '\\', '^', '$', '.', '|', '?', '*', '+', '(', ')', '[', '{' }; 
-        
-        public static string MetaCharacter(char mchar)
+        public static class Transform
         {
-            if (metacharacters.Contains(mchar))
+            private static readonly List<char> metacharacters = new List<char>() { '\\', '^', '$', '.', '|', '?', '*', '+', '(', ')', '[', '{' };
+
+            private static bool IsMetaCharacter(char mchar)
             {
-                return "\\" + mchar;
+                return metacharacters.Contains(mchar);
             }
-            else
+
+            public static string MetaToRegex(char mchar)
             {
-                return mchar.ToString();
+                if (IsMetaCharacter(mchar))
+                {
+                    return "\\" + mchar;
+                }
+                else
+                {
+                    throw new InvalidTokenException("Invalid metacharacter.");
+                }
+            }
+
+            private static char RegexToMeta(string mstring)
+            {
+                if (("" ?? mstring).Length != 2 || !("" ?? mstring).StartsWith("\\") || !IsMetaCharacter(("" ?? mstring).ToCharArray()[1]))
+                {
+                    throw new InvalidTokenException("Invalid regex metacharacter.");
+                }
+                return mstring.ToCharArray()[1];
             }
         }
     }
@@ -27,7 +47,7 @@ namespace ngex
         /// </summary>
         public LexXML()
         {
-            
+
         }
     }
 }
