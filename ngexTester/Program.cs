@@ -9,8 +9,8 @@ namespace ngexTester
         static void Main(string[] args)
         {
 
-            Console.Clear();
-            
+            ngex.XMLToRegexPattern patternSuper = new ngex.XMLToRegexPattern(@"<literal>abc</literal>");
+
         }
     }
 }
