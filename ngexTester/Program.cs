@@ -8,8 +8,8 @@ namespace ngexTester
     {
         static void Main(string[] args)
         {
-          
 
+            Console.Clear();
             
         }
     }

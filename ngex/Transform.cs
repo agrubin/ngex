@@ -3,10 +3,11 @@ using System.Collections.Generic;
 
 namespace ngex
 {
-    internal static class Transform
+internal static class Transform
     {
         private static readonly List<char> metacharacters = new List<char>() { '\\', '^', '$', '.', '|', '?', '*', '+', '(', ')', '[', '{' };
 
+   
         private static bool IsMetaCharacter(char testMeta)
         {
             return metacharacters.Contains(testMeta);
