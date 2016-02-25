@@ -1,12 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ngex
 {
-    using System;
-    using System.Collections.Generic;
-
-    public static class Transform
+    internal static class Transform
     {
         private static readonly List<char> metacharacters = new List<char>() { '\\', '^', '$', '.', '|', '?', '*', '+', '(', ')', '[', '{' };
 
@@ -15,7 +12,7 @@ namespace ngex
             return metacharacters.Contains(testMeta);
         }
 
-        public static string MetaToRegex(char meta)
+        internal static string MetaToRegex(char meta)
         {
             if (IsMetaCharacter(meta))
             {
@@ -32,7 +29,7 @@ namespace ngex
         /// </summary>
         /// <param name="regexMeta"></param>
         /// <returns>char</returns>
-        public static char RegexToMeta(string regexMeta)
+        internal static char RegexToMeta(string regexMeta)
         {
             if ((regexMeta ?? "").Length != 2 || !(regexMeta ?? "").StartsWith(@"\") || !IsMetaCharacter((regexMeta ?? "").ToCharArray()[1]))
             {
@@ -41,14 +38,4 @@ namespace ngex
             return regexMeta.ToCharArray()[1];
         }
     }
-
-    public class LexXML
-    {
-        public LexXML()
-        {
-
-        }
-    }
-    
 }
- 

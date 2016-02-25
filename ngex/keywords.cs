@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ngex
 {
-    class keywords
+    internal class Keywords
     {
     }
 }
