@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="InvalidTokenException.cs" />
+    <Compile Include="keywords.cs" />
     <Compile Include="LexXML.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

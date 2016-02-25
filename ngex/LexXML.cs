@@ -10,16 +10,16 @@ namespace ngex
     {
         private static readonly List<char> metacharacters = new List<char>() { '\\', '^', '$', '.', '|', '?', '*', '+', '(', ')', '[', '{' };
 
-        private static bool IsMetaCharacter(char mchar)
+        private static bool IsMetaCharacter(char testMeta)
         {
-            return metacharacters.Contains(mchar);
+            return metacharacters.Contains(testMeta);
         }
 
-        public static string MetaToRegex(char mchar)
+        public static string MetaToRegex(char meta)
         {
-            if (IsMetaCharacter(mchar))
+            if (IsMetaCharacter(meta))
             {
-                return @"\" + mchar;
+                return @"\" + meta;
             }
             else
             {
@@ -28,17 +28,17 @@ namespace ngex
         }
 
         /// <summary>
-        /// Input string must be 2 characters long with first char = '\' and second char a metacharacter.
+        /// Input regex string must be 2 characters long with first char = '\' and second char a metacharacter.
         /// </summary>
-        /// <param name="mstring"></param>
+        /// <param name="regexMeta"></param>
         /// <returns>char</returns>
-        public static char RegexToMeta(string mstring)
+        public static char RegexToMeta(string regexMeta)
         {
-            if ((mstring ?? "").Length != 2 || !(mstring ?? "").StartsWith(@"\") || !IsMetaCharacter((mstring ?? "").ToCharArray()[1]))
+            if ((regexMeta ?? "").Length != 2 || !(regexMeta ?? "").StartsWith(@"\") || !IsMetaCharacter((regexMeta ?? "").ToCharArray()[1]))
             {
                 throw new InvalidTokenException("Invalid regex metacharacter.");
             }
-            return mstring.ToCharArray()[1];
+            return regexMeta.ToCharArray()[1];
         }
     }
 
