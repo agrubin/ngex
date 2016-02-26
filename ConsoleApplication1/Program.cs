@@ -92,6 +92,9 @@ namespace ConsoleApplication1
 
         static void Main(string[] args)
         {
+            Func<int> foo = ()=>6;
+            int j = foo.Invoke();
+
             Name[] namearray =
             {
 				new Name("ahmet", "tas"),
