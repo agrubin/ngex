@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ngex", "ngex\ngex.csproj", "{EC3408C8-6106-4950-BD60-1534A77C066D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ngexTester", "ngexTester\ngexTester.csproj", "{56691D59-B96E-49FA-8A2E-0B1BC7CB67DD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EC3408C8-6106-4950-BD60-1534A77C066D} = {EC3408C8-6106-4950-BD60-1534A77C066D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{B464B82C-1A51-4271-9092-270D71010C87}"
 EndProject
