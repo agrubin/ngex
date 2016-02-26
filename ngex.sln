@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ngex", "ngex\ngex.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ngexTester", "ngexTester\ngexTester.csproj", "{56691D59-B96E-49FA-8A2E-0B1BC7CB67DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{B464B82C-1A51-4271-9092-270D71010C87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{56691D59-B96E-49FA-8A2E-0B1BC7CB67DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56691D59-B96E-49FA-8A2E-0B1BC7CB67DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56691D59-B96E-49FA-8A2E-0B1BC7CB67DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B464B82C-1A51-4271-9092-270D71010C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B464B82C-1A51-4271-9092-270D71010C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B464B82C-1A51-4271-9092-270D71010C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B464B82C-1A51-4271-9092-270D71010C87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
