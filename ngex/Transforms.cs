@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ngex
 {
-internal static class Transform
+internal static class Transforms
     {
         private static readonly List<char> metacharacters = new List<char>() { '\\', '^', '$', '.', '|', '?', '*', '+', '(', ')', '[', '{' };
 
