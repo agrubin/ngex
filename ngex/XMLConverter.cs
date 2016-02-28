@@ -7,12 +7,11 @@ using System.Xml.Linq;
 
 namespace ngex
 {
-    delegate void mydel();
     public class XMLConverter
     {
         // Fields...
-
-        public string RegexPattern { get; private set; }
+        public LogObservable log = new LogObservable();
+        public string regexpattern { get; private set; }
 
         public bool FromString(string xml)
         {
@@ -22,7 +21,7 @@ namespace ngex
             }
             catch(Exception e)
             {
-                new Error(e, "Invalid format in xml string.");
+                log.Log(this, e, "Invalid format in xml string.");
                 return false;
             }
 
@@ -35,12 +34,12 @@ namespace ngex
 
         public XMLConverter()
         {
-            RegexPattern = "";        
+            regexpattern = "";        
         }
 
         public override string ToString()
         {
-            return RegexPattern;
+            return regexpattern;
         }
     }
 }

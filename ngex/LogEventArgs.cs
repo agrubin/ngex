@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace ngex
 {
@@ -10,16 +11,18 @@ namespace ngex
 
         public string description { get; private set; }
         public DateTime timestamp { get; private set; }
+        public Exception exception { get; private set; }
 
         public LogEventArgs()
         {
-            description = "None.";
-            timestamp = DateTime.Now;
+            this.description = "None.";
+            this.timestamp = DateTime.Now;
         }
-        public LogEventArgs(string description)
+        public LogEventArgs(string description, Exception e)
         {
             this.description = description;
-            timestamp = DateTime.Now;
+            this.exception = e;
+            this.timestamp = DateTime.Now;
         }
     }
 }
