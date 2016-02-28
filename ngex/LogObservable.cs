@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace ngex
 {
-    internal class LogObservable
+    public class LogObservable
     {
         // Fields...
-        public event LogEventHandler logevent;
+        public static event LogEventHandler logevent;
 
-        public void Post(object observedtype, Exception caughtexception, string message)
+        protected void Post(object observedtype, Exception caughtexception, string message)
         {
             logevent?.Invoke(observedtype, new LogEventArgs(message, caughtexception));
         }

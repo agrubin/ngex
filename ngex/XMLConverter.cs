@@ -8,22 +8,21 @@ using System.Diagnostics;
 
 namespace ngex
 {
-    public class XMLConverter
+    public class XMLConverter : LogObservable
     {
         // Fields...
         public string regexpattern { get; private set; }
-
-        internal LogObservable log = new LogObservable();
 
         public bool FromString(string xml)
         {
             try
             {
                 XElement xmlTree = XElement.Parse(xml);
-                log.Post(this, null, "Just parsed xml string.");
+                Post(this, null, "Just parsed xml string.");
             }
             catch(Exception e)
             {
+                Post(this, e, "Bad XML string.");
                 return false;
             }
 

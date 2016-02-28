@@ -11,20 +11,21 @@ namespace ngexTester
     
     class Program
     {
-    
-        static void Main(string[] args)
-        {
-            XMLConverter converter = new XMLConverter();
-            
-            TextWriterTraceListener myTextListener = new TextWriterTraceListener(System.Console.Out);
-            Trace.Listeners.Add(myTextListener);
+        //static void Main(string[] args)
+        //{
+        //    LogObservable.logevent += LogHandler;
+        //    TextWriterTraceListener myTextListener = new TextWriterTraceListener(System.Console.Out);
+        //    Trace.Listeners.Add(myTextListener);
 
-            // Write output to the file.
-            Trace.Write("Test output ");
+        //    XMLConverter converter = new XMLConverter();
+        //    converter.FromString(@"<hi>there</hi>");           
+        //}
 
-
-            // Flush the output.
-            Trace.Flush();
-        }
+        //static void LogHandler(object sender, LogEventArgs logeventargs)
+        //{
+        //    Trace.Write("Test output ");
+        //    Trace.Flush();
+        //    int j = 7;
+        //}
     }
 }
