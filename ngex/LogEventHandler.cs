@@ -5,5 +5,5 @@ using System.Text;
 
 namespace ngex
 {
-    public delegate void LogEventHandler(object sender, LogEventArgs logeventargs);
+    public delegate void LogEventHandler(object sender, LogEventArgs logEventArgs);
 }

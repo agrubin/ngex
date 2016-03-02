@@ -11,7 +11,7 @@ namespace ngex
     public class XMLConverter : LogObservable
     {
         // Fields...
-        public string regexpattern { get; private set; }
+        public string regexPattern { get; private set; }
 
         public bool FromString(string xml)
         {
@@ -22,7 +22,7 @@ namespace ngex
             }
             catch(Exception e)
             {
-                Post(this, e, "Bad XML string.");
+                Post(this, e, "Bad XML string input.");
                 return false;
             }
 
@@ -35,12 +35,12 @@ namespace ngex
 
         public XMLConverter()
         {
-            regexpattern = "";        
+            regexPattern = "";        
         }
 
         public override string ToString()
         {
-            return regexpattern;
+            return regexPattern;
         }
     }
 }

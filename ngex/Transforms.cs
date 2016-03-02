@@ -5,12 +5,12 @@ namespace ngex
 {
 internal static class Transforms
     {
-        private static readonly List<char> metacharacters = new List<char>() { '\\', '^', '$', '.', '|', '?', '*', '+', '(', ')', '[', '{' };
+        private static readonly List<char> metaChars = new List<char>() { '\\', '^', '$', '.', '|', '?', '*', '+', '(', ')', '[', '{' };
 
    
         private static bool IsMetaCharacter(char testMeta)
         {
-            return metacharacters.Contains(testMeta);
+            return metaChars.Contains(testMeta);
         }
 
         internal static string MetaToRegex(char meta)
