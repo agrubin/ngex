@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace ngex
 {
-    public class LogObservable
+    static public class LogObservable
     {
         /// <summary>
         /// Subscribe to logevent for logging.
@@ -21,7 +21,7 @@ namespace ngex
         /// <param name="caughtException"></param>
         /// <param name="message"></param>
         /// <param name="callerName"></param>
-        protected void Post(object observedType, Exception caughtException, string message, [System.Runtime.CompilerServices.CallerMemberName] string callerName = "" )
+        static internal void Post(object observedType, Exception caughtException, string message, [System.Runtime.CompilerServices.CallerMemberName] string callerName = "" )
         {
             logEvent?.Invoke(observedType, new LogEventArgs(message, caughtException, callerName));
         }

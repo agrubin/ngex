@@ -22,27 +22,22 @@ namespace ngexTester
             converter.FromString(@"<hithere</hi>");           
         }
 
-        public void TraceMessage(string message,
-        [System.Runtime.CompilerServices.CallerMemberName] string memberName = "",
-        [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = "",
-        [System.Runtime.CompilerServices.CallerLineNumber] int sourceLineNumber = 0)
+        static void WriteLogEntry(string logEntry)
         {
-            System.Diagnostics.Trace.WriteLine("message: " + message);
-            System.Diagnostics.Trace.WriteLine("member name: " + memberName);
-            System.Diagnostics.Trace.WriteLine("source file path: " + sourceFilePath);
-            System.Diagnostics.Trace.WriteLine("source line number: " + sourceLineNumber);
+            Trace.Write(logEntry);
+            Trace.Flush();
         }
+
         static void LogHandler(object sender, LogEventArgs logeventargs)
         {
-           
-            StringBuilder logentry = new StringBuilder();
-            logentry.Append(logeventargs.timeStamp).AppendLine();
-            logentry.Append(logeventargs.description).AppendLine();
-            logentry.Append(logeventargs?.exception.Message).AppendLine();
-            logentry.Append("-------------------").AppendLine();
-            Trace.Write(logentry);
-            Trace.Flush();
-
+            StringBuilder logEntry = new StringBuilder();
+            logEntry.Append(logeventargs.timeStamp).AppendLine();
+            logEntry.Append("Class: " + sender.GetType().Name).AppendLine();
+            logEntry.Append("Method: " + logeventargs.callerName).AppendLine();
+            logEntry.Append("Description: " + logeventargs.description).AppendLine();
+            logEntry.Append("Exception: " + logeventargs?.exception.Message).AppendLine();
+            logEntry.Append("-------------------").AppendLine();
+            WriteLogEntry(logEntry.ToString());
         }
     }
 }

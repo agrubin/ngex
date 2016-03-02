@@ -7,14 +7,14 @@ namespace ngex
 {
     public class LogEventArgs : EventArgs
     {
-        private string callerName;
 
         // Fields...
 
         public string description { get; private set; }
         public DateTime timeStamp { get; private set; }
         public Exception exception { get; private set; }
-  
+        public string callerName { get; private set; }
+
         public LogEventArgs(string description, Exception e)
         {
             this.description = description;
