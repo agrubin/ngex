@@ -14,16 +14,11 @@ namespace ngex
         public DateTime timeStamp { get; private set; }
         public Exception exception { get; private set; }
         public string callerName { get; private set; }
-
-        public LogEventArgs(string description, Exception e)
+        public LogEventArgs(string description, Exception e, string callerName) 
         {
             this.description = description;
-            this.exception = e;
+            this.exception = e ?? new Exception("none");
             this.timeStamp = DateTime.Now;
-        }
-
-        public LogEventArgs(string description, Exception e, string callerName) : this(description, e)
-        {
             this.callerName = callerName;
         }
     }

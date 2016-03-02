@@ -19,7 +19,7 @@ namespace ngexTester
             Trace.Listeners.Add(myTextListener);
 
             XMLConverter converter = new XMLConverter();
-            converter.FromString(@"<hithere</hi>");           
+            converter.FromString(@"<hi>there<hi>");           
         }
 
         static void WriteLogEntry(string logEntry)
@@ -35,7 +35,7 @@ namespace ngexTester
             logEntry.Append("Class: " + sender.GetType().Name).AppendLine();
             logEntry.Append("Method: " + logeventargs.callerName).AppendLine();
             logEntry.Append("Description: " + logeventargs.description).AppendLine();
-            logEntry.Append("Exception: " + logeventargs?.exception.Message).AppendLine();
+            logEntry.Append("Exception: " + logeventargs.exception.Message).AppendLine();
             logEntry.Append("-------------------").AppendLine();
             WriteLogEntry(logEntry.ToString());
         }
