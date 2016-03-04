@@ -9,23 +9,28 @@ using ngex;
 
 namespace ngexTester
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            LogObservable.logEvent += LogHandler;
-            TextWriterTraceListener myTextListener = new TextWriterTraceListener(System.Console.Out);
-            Trace.Listeners.Add(myTextListener);
+            LogObservable.LogStart(LogHandler);
+            LogObservable.LogStart(LogHandler);
 
             XMLConverter converter = new XMLConverter();
-            converter.FromString(@"<hi>there<hi>");           
+            converter.FromString(@"<hi>there</hi>");
+
+            LogObservable.LogStop(LogHandler);
+            LogObservable.LogStop(LogHandler);
         }
 
         static void WriteLogEntry(string logEntry)
         {
+            TextWriterTraceListener myTextListener = new TextWriterTraceListener(System.Console.Out);
+            Trace.Listeners.Add(myTextListener);
             Trace.Write(logEntry);
             Trace.Flush();
+            myTextListener.Dispose();
+            myTextListener = null;
         }
 
         static void LogHandler(object sender, LogEventArgs logeventargs)

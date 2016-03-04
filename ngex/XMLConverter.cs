@@ -19,9 +19,18 @@ namespace ngex
             {
                 XElement xmlTree = XElement.Parse(xml);
                 LogObservable.Post(this, null, "Just parsed xml string.");
+
+                try
+                {
+                    Transforms.MetaToRegex('b');
+                }
+                catch (Exception ex)
+                {
+                    LogObservable.Post(this, ex, "Meta to regex whileparsing XML.");
+                }
             }
-            catch(Exception e)
-            {
+            catch (XmlException e)
+            {               
                 LogObservable.Post(this, e, "Bad XML string input.");
                 return false;
             }

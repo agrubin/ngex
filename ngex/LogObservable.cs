@@ -10,7 +10,17 @@ namespace ngex
         /// Subscribe to logevent for logging.
         /// </summary>
         // Fields...
-         static public event LogEventHandler logEvent;
+         static private event LogEventHandler logEvent;
+
+        static public void LogStart(LogEventHandler lehDelegate)
+        {
+            logEvent += lehDelegate;
+        }
+
+        static public void LogStop(LogEventHandler lehDelegate)
+        { 
+            logEvent -= lehDelegate;
+        }
 
         /// <summary>
         /// The Post method is called at any point in the application which requires logging.  Note that
