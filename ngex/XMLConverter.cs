@@ -26,12 +26,12 @@ namespace ngex
                 }
                 catch (Exception ex)
                 {
-                    LogObservable.Post(this, ex, "Meta to regex whileparsing XML.");
+                    LogObservable.Post(this, ex);
                 }
             }
-            catch (XmlException e)
+            catch (XmlException ex)
             {               
-                LogObservable.Post(this, e, "Bad XML string input.");
+                LogObservable.Post(this, ex);
                 return false;
             }
 

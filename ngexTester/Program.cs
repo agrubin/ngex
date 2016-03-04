@@ -39,8 +39,8 @@ namespace ngexTester
             logEntry.Append(logeventargs.timeStamp).AppendLine();
             logEntry.Append("Class: " + sender.GetType().Name).AppendLine();
             logEntry.Append("Method: " + logeventargs.callerName).AppendLine();
+            logEntry.Append("Exception: " + logeventargs.exception).AppendLine();
             logEntry.Append("Description: " + logeventargs.description).AppendLine();
-            logEntry.Append("Exception: " + logeventargs.exception.Message).AppendLine();
             logEntry.Append("-------------------").AppendLine();
             WriteLogEntry(logEntry.ToString());
         }

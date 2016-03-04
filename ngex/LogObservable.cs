@@ -6,12 +6,13 @@ namespace ngex
 {
     static public class LogObservable
     {
-        /// <summary>
-        /// Subscribe to logevent for logging.
-        /// </summary>
         // Fields...
          static private event LogEventHandler logEvent;
 
+        /// <summary>
+        /// Start a logger or multiple loggers by passing in a log event handler.
+        /// </summary>
+        /// <param name="lehDelegate"></param>
         static public void LogStart(LogEventHandler lehDelegate)
         {
             logEvent += lehDelegate;
@@ -31,7 +32,7 @@ namespace ngex
         /// <param name="caughtException"></param>
         /// <param name="message"></param>
         /// <param name="callerName"></param>
-        static internal void Post(object observedType, Exception caughtException, string message, [System.Runtime.CompilerServices.CallerMemberName] string callerName = "" )
+        static internal void Post(object observedType, Exception caughtException, string message = "", [System.Runtime.CompilerServices.CallerMemberName] string callerName = "" )
         {
             logEvent?.Invoke(observedType, new LogEventArgs(message, caughtException, callerName));
         }

@@ -12,12 +12,21 @@ namespace ngex
 
         public string description { get; private set; }
         public DateTime timeStamp { get; private set; }
-        public Exception exception { get; private set; }
+        public string exception { get; private set; }
         public string callerName { get; private set; }
-        public LogEventArgs(string description, Exception e, string callerName) 
+        public LogEventArgs(string description, Exception e, string callerName ) 
         {
-            this.description = description;
-            this.exception = e ?? new Exception("none");
+            if (e == null)
+            {
+               this.description = description;
+               this.exception = "None";
+            }
+            else
+            {
+                this.description = e.Message;
+                this.exception = e.GetType().FullName;
+            }
+ 
             this.timeStamp = DateTime.Now;
             this.callerName = callerName;
         }
