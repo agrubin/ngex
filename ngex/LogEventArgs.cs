@@ -13,6 +13,7 @@ namespace ngex
         public string description { get; private set; }
         public DateTime timeStamp { get; private set; }
         public string exception { get; private set; }
+        public string targetsite { get; private set; }
         public string callerName { get; private set; }
         public LogEventArgs(string description, Exception e, string callerName ) 
         {
